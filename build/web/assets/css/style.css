@@ -1,0 +1,243 @@
+﻿:root {
+    --angle: 45deg;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Thumb */
+::-webkit-scrollbar-thumb {
+    background: #908585;
+    border-radius: 5px;
+}
+
+/* Khi hover trên thumb */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.error {
+    color: red;
+    font-weight: 400;
+}
+
+.icon-hover:hover {
+  border-color: #3b71ca !important;
+  background-color: white !important;
+}
+
+.icon-hover:hover i {
+  color: #3b71ca !important;
+}
+
+.product-name {
+    display: -webkit-box; /* Chỉ định hiển thị dạng block */
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden; /* Ẩn phần văn bản bị cắt ngắn */
+    text-overflow: ellipsis; /* Hiển thị dấu ba chấm (...) */
+    max-width: 100%; /* Giới hạn chiều rộng tối đa */
+}
+
+.post-description {
+    display: -webkit-box; /* Chỉ định hiển thị dạng block */
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden; /* Ẩn phần văn bản bị cắt ngắn */
+    text-overflow: ellipsis; /* Hiển thị dấu ba chấm (...) */
+    max-width: 100%; /* Giới hạn chiều rộng tối đa */
+}
+
+
+.category-item {
+    width: max-content;
+}
+
+@media (min-width: 768px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        margin: 0; /* remove the gap so it doesn't close */
+    }
+
+    .dropend:hover .dropdown-menu-child {
+        display: block !important;
+        margin: 0; /* remove the gap so it doesn't close */
+    }
+
+    .dropdown > .dropdown-toggle:active {
+        /*Without this, clicking will make it sticky*/
+        pointer-events: none;
+    }
+
+    .dropend .dropdown-menu-child {
+        position: absolute;
+        padding: 0;
+        display: none;
+        top: 0;
+        right: auto;
+        left: 100%;
+        margin-top: 0;
+        margin-left: var(--mdb-dropdown-spacer);
+        border-radius: 0.5rem;
+        overflow: hidden;
+    }
+
+    .dropdown-menu-child li {
+        list-style-type: none;
+        background-color: #fff;
+    }
+
+    .menu-link {
+        font-size: 15px;
+    }
+
+    .menu-link:hover {
+        color: #d85c5c !important;
+    }
+
+    .category-item {
+        width: 100%;
+    }
+}
+
+
+figure[class="image"] {
+    padding: 4px;
+    margin: auto;
+    margin-bottom: 2em;
+}
+
+figure[class="image"] figcaption {
+    background-color: rgba(0,0,0,.05);
+    font-style: italic;
+    padding: 2px;
+    text-align: center;
+
+}
+
+figure[class="image"] img {
+    width: 100%;
+    height: auto;
+}
+
+#scroll-to-top-btn {
+    display: none;
+    border-radius: 50%;
+    border: solid 2px #000;
+    position: fixed;
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    bottom: 5%;
+    right: 8%;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transform: translateY(100%);
+}
+
+@media(max-width: 576px){
+    #scroll-to-top-btn {
+        bottom: 10%;
+        right: 8%;
+    }
+}
+
+#scroll-to-top-btn i {
+    font-size: 25px;
+}
+
+#scroll-to-top-btn:hover {
+    color: #fff;
+    border-color: #fff;
+    cursor: pointer;
+    background-color: #ff9724;
+}
+
+#scroll-to-top-btn.hide {
+    animation: slide-down 0.3s ease-in-out forwards; /* thực hiện animation slide-up */
+}
+
+#scroll-to-top-btn.show {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    animation: slide-up 0.3s ease-in-out forwards; /* thực hiện animation slide-up */
+}
+
+
+@keyframes slide-up {
+    from {
+        transform: translateY(100%); /* di chuyển nút xuống dưới */
+        opacity: 0.1;
+    }
+
+    to {
+        transform: translateY(0); /* di chuyển nút lên trên */
+        opacity: 1;
+    }
+}
+
+@keyframes slide-down {
+    from {
+        transform: translateY(0); /* di chuyển nút xuống dưới */
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(200%); /* di chuyển nút lên trên */
+        opacity: 0;
+    }
+}
+
+.txtQuantity::-webkit-outer-spin-button,
+.txtQuantity::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.txtQuantity {
+    -moz-appearance: textfield;
+}
+
+.cursor-pointer:hover {
+    cursor: pointer;
+}
+
+@media(max-width: 415px){
+    .ui-widget {
+        max-width: 335px;
+    }
+}
+
+
+.loader-div {
+    display: none;
+    position: fixed;
+    margin: 0px;
+    padding: 0px;
+    right: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #F4F5F5;
+    z-index: 30001;
+    opacity: 0.8;
+}
+
+.loader-img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
