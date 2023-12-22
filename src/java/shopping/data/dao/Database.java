@@ -7,6 +7,7 @@ package shopping.data.dao;
 
 import shopping.data.impl.CategoryImpl;
 import shopping.data.impl.ProductImpl;
+import shopping.data.impl.UserImpl;
 
 /**
  *
@@ -19,5 +20,9 @@ public class Database {
     
     public static ProductDao getProductDao(){
         return new ProductImpl();
+    }
+    
+    public static UserDao getUserDao(){
+        return new UserImpl();
     }
 }

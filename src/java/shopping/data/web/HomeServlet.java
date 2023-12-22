@@ -25,11 +25,8 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Category> listCategory = Database.getCategoryDao().findAll();
-        request.setAttribute("listCategory", listCategory);
-        List<Product> listProduct = Database.getProductDao().findAll();
-        request.setAttribute("listProduct", listProduct);
-        request.getRequestDispatcher("./views/home.jsp").include(request, response);
+        request.setAttribute("title", "Cửa hàng điện thoại");
+        request.getRequestDispatcher("/views/home.jsp").forward(request, response);
     }
 
     /**
