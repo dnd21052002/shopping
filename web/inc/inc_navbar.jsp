@@ -29,8 +29,7 @@
                 <!-- Center elements -->
                 <div class="order-lg-last col-lg-5 col-sm-8 col-12">
                     <div class="d-flex float-end">
-<!--                        @if (Request.IsAuthenticated)
-                        {
+                        <c:if test="${user != null}">
                             <div class="dropdown">
                                 <a class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center dropdown-toggle"
                                    href="#"
@@ -39,24 +38,21 @@
                                    data-mdb-toggle="dropdown"
                                    aria-expanded="false">
                                     <i class="fas fa-user-alt m-1 me-md-2"></i>
-                                    @ViewBag.User.FullName
+                                    ${user.name}
                                 </a>
 
                                 <ul class="dropdown-menu overflow-hidden" aria-labelledby="dropdownMenuLink">
-                                    <li><a class="dropdown-item" href="@Url.Action("AccountInfo", "Account")">Thông tin tài khoản</a></li>
-                                    <li><a class="dropdown-item" href="#">Sản phẩm yêu thích</a></li>
-                                    @using (Html.BeginForm("Logout", "Account", FormMethod.Post, new {id = "logoutForm"}))
-                                    {
-                                        <li><a href="#" class="dropdown-item btnLogout">Đăng xuất</a></li>
-                                    }
+                                    <li><a class="dropdown-item" href="#">Thông tin tài khoản</a></li>
+                                    <li><a href="./views/logout.jsp" class="dropdown-item btnLogout">Đăng xuất</a></li>
                                 </ul>
                             </div>
-                        }
-                        else
-                        {-->
-                        <a href="/Shopping/dang-nhap" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center">
-                           <i class="fas fa-user-alt m-1 me-md-2"></i><p class="d-none d-md-block mb-0">Đăng nhập</p>
-                        </a>
+                        </c:if>
+                        <c:if   test="${user == null}">
+                            <a href="/Shopping/dang-nhap" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center">
+                                <i class="fas fa-user-alt m-1 me-md-2"></i><p class="d-none d-md-block mb-0">Đăng nhập</p>
+                            </a>
+                        </c:if>
+                        
                         <!--}-->
                         <a href="/gio-hang" class="border rounded py-1 px-3 nav-link d-flex align-items-center"> <i class="fas fa-shopping-cart m-1 me-md-2"></i><p class="d-none d-md-block mb-0">Giỏ hàng</p> </a>
                     </div>

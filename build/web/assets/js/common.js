@@ -30,11 +30,6 @@ var common = {
                 .append("<img src='" + item.Image + "' width='50' height='50' class='p-0 rounded-circle border-0 me-3' />" + item.Name + "")
             .appendTo(ul);
         };
-
-        $(".btnLogout").off("click").on("click", function (e) {
-            e.preventDefault();
-            $("#logoutForm").submit();
-        });
         
         $('.btnAddToCart').off('click').on('click', function (e) {
             e.preventDefault();

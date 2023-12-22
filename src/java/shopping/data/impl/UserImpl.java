@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import shopping.data.dao.UserDao;
 import shopping.data.driver.MySQLDriver;
 import shopping.data.model.User;
+import shopping.utils.Common;
 
 /**
  *
@@ -25,8 +26,8 @@ public class UserImpl implements UserDao{
     @Override
     public User findUser(String emailphone, String password) {
         String sql;
-        if(emailphone.contains("@"))sql="select * from users where email='"+emailphone+"' and password='"+password+"'";
-        else sql="select * from users where email='"+emailphone+"' and password='"+password+"'";
+        if(emailphone.contains("@"))sql="select * from users where email='"+emailphone+"' and password='"+Common.getMd5(password)+"'";
+        else sql="select * from users where email='"+emailphone+"' and password='"+Common.getMd5(password)+"'";
         try {
             PreparedStatement sttm = conn.prepareStatement(sql);
             ResultSet rs = sttm.executeQuery();
@@ -35,5 +36,31 @@ public class UserImpl implements UserDao{
             Logger.getLogger(UserImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    @Override
+    public User findUser(String emailphone) {
+        String sql;
+        if(emailphone.contains("@"))sql="select * from users where email='" + emailphone +"'";
+        else sql="select * from users where email='" + emailphone +"'";
+        try {
+            PreparedStatement sttm = conn.prepareStatement(sql);
+            ResultSet rs = sttm.executeQuery();
+            if(rs.next()) return new User(rs);
+        } catch (SQLException ex) {
+            Logger.getLogger(UserImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    @Override
+    public void insertUser(String name, String email, String phone, String password) {
+        String sql = "insert into users(name, email, phone, password, role) values ('" +name +"','" +email+ "','" +phone+ "','" + password +"','')";
+        try {
+            PreparedStatement sttm = conn.prepareStatement(sql);
+            sttm.execute();
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
     }
 }

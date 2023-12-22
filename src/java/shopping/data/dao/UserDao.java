@@ -13,4 +13,6 @@ import shopping.data.model.User;
  */
 public interface UserDao {
     public User findUser(String emailphone, String password);
+    public User findUser(String emailphone);
+    public void insertUser(String name, String email, String phone, String password);
 }
